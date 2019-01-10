@@ -1,0 +1,34 @@
+# for use in k8s clusters only
+# for OpenShift, use the OpenShift-specific examples
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: bigip-ctlr-clusterrole
+rules:
+- apiGroups: ["", "extensions"]
+  resources: ["nodes", "services", "endpoints", "namespaces", "ingresses", "pods"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["", "extensions"]
+  resources: ["configmaps", "events", "ingresses/status"]
+  verbs: ["get", "list", "watch", "update", "create", "patch"]
+- apiGroups: ["", "extensions"]
+  resources: ["secrets"]
+  resourceNames: ["<secret-containing-bigip-login>"]
+  verbs: ["get", "list", "watch"]
+
+---
+
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: bigip-ctlr-clusterrole-binding
+  namespace: <controller_namespace>
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: bigip-ctlr-clusterrole
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: ServiceAccount
+  name: bigip-ctlr
+  namespace: <controller_namespace>
