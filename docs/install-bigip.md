@@ -37,3 +37,19 @@ kubectl create clusterrolebinding k8s-bigip-ctlr-clusteradmin --clusterrole=clus
 ```
 kubectl create -f f5-cluster-deployment.yaml
 ```
+##### Add the BIG-IP device to the flannel overlay network.
+##### Find the VTEP MAC address
+```
+tmsh
+show /net tunnels tunnel fl-vxlan all-properties
+
+-------------------------------------------------
+Net::Tunnel: fl-vxlan
+-------------------------------------------------
+MAC Address                     00:50:56:bb:2a:ac
+Interface Name                           fl-vxlan
+```
+##### Create a Kubernetes Node for the BIG-IP device.
+```
+kubectl create -f f5-bigip-node.yaml
+```
