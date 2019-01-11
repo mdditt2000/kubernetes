@@ -13,7 +13,7 @@ data:
         "frontend": {
           "balance": "round-robin",
           "mode": "http",
-          "partition": "kubernetes",
+          "partition": "K8s",
           "virtualAddress": {
             "bindAddr": "10.192.75.92",
             "port": 80
