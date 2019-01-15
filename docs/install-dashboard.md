@@ -87,18 +87,28 @@ Namespace:           kube-system
 Labels:              <none>
 Annotations:         <none>
 Image pull secrets:  <none>
-Mountable secrets:   dashboard-admin-token-bxrqw
-Tokens:              dashboard-admin-token-bxrqw
+Mountable secrets:   dashboard-admin-token-h5pvx
+Tokens:              dashboard-admin-token-h5pvx
 Events:              <none>
 ```
 ###### Get token to access the dashboard
 ```
-kubectl describe secret dashboard-admin-token-bxrqw -n kube-system
-Name:         dashboard-admin-token-bxrqw
+[kube@k8s-1-13-master root]$ kubectl describe sa dashboard-admin -n kube-system
+Name:                dashboard-admin
+Namespace:           kube-system
+Labels:              <none>
+Annotations:         <none>
+Image pull secrets:  <none>
+Mountable secrets:   dashboard-admin-token-h5pvx
+Tokens:              dashboard-admin-token-h5pvx
+Events:              <none>
+
+kubectl describe secret dashboard-admin-token-h5pvx -n kube-system
+Name:         dashboard-admin-token-h5pvx
 Namespace:    kube-system
 Labels:       <none>
 Annotations:  kubernetes.io/service-account.name: dashboard-admin
-              kubernetes.io/service-account.uid: 720549f3-1839-11e9-9f7d-005056bb599e
+              kubernetes.io/service-account.uid: 24576691-186d-11e9-9f7d-005056bb599e
 
 Type:  kubernetes.io/service-account-token
 
@@ -106,5 +116,5 @@ Data
 ====
 ca.crt:     1025 bytes
 namespace:  11 bytes
-token:      eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJkYXNoYm9hcmQtYWRtaW4tdG9rZW4tYnhycXciLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGFzaGJvYXJkLWFkbWluIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiNzIwNTQ5ZjMtMTgzOS0xMWU5LTlmN2QtMDA1MDU2YmI1OTllIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Omt1YmUtc3lzdGVtOmRhc2hib2FyZC1hZG1pbiJ9.Iszo03rKv5izgeZDgJAWT5KCQSgWdB1SYF46CsZXuV1hD70kMJoFfo6nzn9WI0rQ2Ld0IaoWIMYELIOR82K4UZWk7WGlMYJmgr9Yf1lrTv5wAv86zsmnuxE5d8d8meMKzFIjdSThtvVGes5x7OISoc3in1r4gN3texxeLo8rH89eqYxze-J9_S47AQdeW5wD9KSdfXj30qrGNEa65dpFwEJYw5NGLe6LJl_oHnu042MNU6jvJYEnOaUH64TQa8EQ2ZdXuzFKdUVqKojtr9kwLs44H0YE78mkWZsI2aQ8SfLOlz8OISytA0dZnbhRCl7kuyBSb8t8wv9JgYkBIz2QpA
+token:      eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJkYXNoYm9hcmQtYWRtaW4tdG9rZW4taDVwdngiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGFzaGJvYXJkLWFkbWluIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMjQ1NzY2OTEtMTg2ZC0xMWU5LTlmN2QtMDA1MDU2YmI1OTllIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Omt1YmUtc3lzdGVtOmRhc2hib2FyZC1hZG1pbiJ9.QuxTQo7-Aa6TArBaWfbPJpTJ1RWJemHxcyqU6HJd5Twmrmfsg4BXwb31mymaGrfHgRR6mpfaGcQqFW1tLELu2dXLy-Q6d9hNouURo19jG1ZdGqYTGde-OwVgRgZqF3EqAOzM90A9nGcSCwTihlzzeYgseuLGwknYtUp5-70eVqy9dYvlEFCEBvoKJ02JRep7qIZHP3KAL-mqm2c2wYj6mbFyyR6dOSTVm9fcfexzl4r_8OZu8mChmdQId0ZROaCE2Kk8P0gP_vbMUT6SnQvgMXIuntrhf0NyyR9IY9PeQ5ahXl8FyaAYmnnvRq0gNg1zhr-tdvOXgeoTSXPfTV4V_Q
 ```
