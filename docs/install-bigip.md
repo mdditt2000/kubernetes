@@ -34,6 +34,17 @@ kubectl create serviceaccount bigip-ctlr -n kube-system
 kubectl create clusterrolebinding k8s-bigip-ctlr-clusteradmin --clusterrole=cluster-admin --serviceaccount=kube-system:k8s-bigip-ctlr
 ```
 ##### Create cluster deplpoyment.
+
+We have two deployment mode options, Nodeport or Cluster.
+
+###### Nodeport mode
+
+```
+kubectl create -f f5-nodeport-deployment.yaml
+```
+
+###### Cluster mode
+
 ```
 kubectl create -f f5-cluster-deployment.yaml
 ```
