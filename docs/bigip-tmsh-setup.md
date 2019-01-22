@@ -1,4 +1,3 @@
-#!/bin/bash
 
 ##### Initial Setup for non-HA
 tmsh create auth partition K8s
