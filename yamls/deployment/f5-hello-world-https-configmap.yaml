@@ -20,7 +20,7 @@ data:
           "sslProfile": {
           "f5ProfileName": "Common/clientssl"
           }
-        }
+        },
         "backend": {
           "servicePort": 8080,
           "serviceName": "f5-hello-world",
