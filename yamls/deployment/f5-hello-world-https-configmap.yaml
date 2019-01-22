@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: f5-hello-world-https
+  name: f5-hello-world.vs.https
   labels:
     f5type: virtual-server
 data:
@@ -33,3 +33,4 @@ data:
         }
       }
     }
+
