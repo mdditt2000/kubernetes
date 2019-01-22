@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: f5-hello-world
+  name: f5-hello-world.vs.https
   labels:
     f5type: virtual-server
 data:
@@ -20,7 +20,7 @@ data:
           "sslProfile": {
           "f5ProfileName": "Common/clientssl"
           }
-        }
+        },
         "backend": {
           "servicePort": 8080,
           "serviceName": "f5-hello-world",
