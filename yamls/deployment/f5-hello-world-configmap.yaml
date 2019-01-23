@@ -15,7 +15,7 @@ data:
           "mode": "http",
           "partition": "K8s",
           "virtualAddress": {
-            "bindAddr": "10.192.75.92",
+            "bindAddr": "10.192.75.94",
             "port": 80
           }
         },

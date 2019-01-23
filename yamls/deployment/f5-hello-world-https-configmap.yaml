@@ -12,7 +12,7 @@ data:
           "frontend": {
           "virtualAddress": {
             "port": 443,
-            "bindAddr": "10.192.75.93"
+            "bindAddr": "10.192.75.95"
           },
           "partition": "K8s",
           "balance": "round-robin",
