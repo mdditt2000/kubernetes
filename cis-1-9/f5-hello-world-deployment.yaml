@@ -4,7 +4,7 @@ metadata:
   name: f5-hello-world
   namespace: default
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: f5-hello-world
@@ -17,9 +17,9 @@ spec:
       - env:
         - name: service_name
           value: f5-hello-world
-      image: "f5devcentral/f5-hello-world:latest"
-      imagePullPolicy: Always
-      name: f5-hello-world
-      ports:
-      - containerPort: 80
-        protocol: TCP
+        image: f5networksdevel/test-nginx:latest
+        imagePullPolicy: Always
+        name: f5-hello-world
+        ports:
+        - containerPort: 80
+          protocol: TCP
