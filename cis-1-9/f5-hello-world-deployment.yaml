@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: f5-hello-world
@@ -11,15 +11,15 @@ spec:
   template:
     metadata:
       labels:
-        run: f5-hello-world
+        app: f5-hello-world
     spec:
       containers:
-     - env:
+      - env:
         - name: service_name
           value: f5-hello-world
-        image: f5devcentral/f5-hello-world:latest
-        imagePullPolicy: Always
-        name: f5-hello-world
-        ports:
-        - containerPort: 80
-          protocol: TCP
+      image: "f5devcentral/f5-hello-world:latest"
+      imagePullPolicy: Always
+      name: f5-hello-world
+      ports:
+      - containerPort: 80
+        protocol: TCP
