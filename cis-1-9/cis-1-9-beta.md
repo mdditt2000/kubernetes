@@ -8,7 +8,7 @@ The following version of K8S has been validated
 - Controller: ssurenr/k8s-bigip-ctlr:as3-m1
 
 ##### Open Issues
-- 1. Observed that pool member is not getting deleted in BIGIP when corresponding deployment is deleted in K8S.
-- 2. Could not able to create multiple services in BIGIP using AS3.
-- 3. Observed crash in f5-cccl when used mixed combination of Configmaps with as3 schema versions 3.8.0 and 3.10.0.
-- 4. CC appends endpoints of all the services with same metadata label
+1. Observed that pool member is not getting deleted in BIGIP when corresponding deployment is deleted in K8S.
+2. Could not able to create multiple services in BIGIP using AS3.
+3. Observed crash in f5-cccl when used mixed combination of Configmaps with as3 schema versions 3.8.0 and 3.10.0.
+4. CC appends endpoints of all the services with same metadata label
