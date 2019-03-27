@@ -27,15 +27,7 @@ data:
               "virtualAddresses": [
                 "1.1.1.1"
               ],
-              "pool": "web_pool",
-              "securityLogProfiles": [
-                    {
-                        "bigip": "/Common/Log all requests"
-                    }
-                ],
-                "policyWAF": {
-                    "use": "owaspautotune"
-                }
+              "pool": "web_pool"
             },
             "web_pool": {
               "class": "Pool",
@@ -48,11 +40,6 @@ data:
                   "serverAddresses": []
                 }
               ]
-            },
-            "owaspautotune": {
-                "class": "WAF_Policy",
-                "url": "https://raw.githubusercontent.com/mdditt2000/f5-as3-declarations/master/Common_WAF_Policy.xml",
-                "ignoreChanges": true
             }
           }
         }
