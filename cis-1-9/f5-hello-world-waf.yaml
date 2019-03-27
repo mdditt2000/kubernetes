@@ -1,0 +1,47 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: f5-hello-world
+  namespace: default
+  labels:
+    f5type: virtual-server
+    as3: "true"
+data:
+  template: |
+    {
+      "class": "AS3",
+      "action": "deploy",
+      "persist": true,
+      "declaration": {
+        "class": "ADC",
+        "schemaVersion": "3.10.0",
+        "label": "Sample 3",
+        "remark": "Simple HTTP application with waf,
+        "AS3": {
+          "class": "Tenant",
+          "A3": {
+            "class": "Application",
+            "template": "http",
+            "serviceMain": {
+              "class": "Service_HTTP",
+              "virtualAddresses": [
+                "1.1.1.3"
+              ],
+              "pool": "web_pool"
+            },
+            "web_pool": {
+              "class": "Pool",
+              "monitors": [
+                "http"
+              ],
+              "members": [
+                {
+                  "servicePort": 80,
+                  "serverAddresses": []
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
