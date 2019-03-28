@@ -40,7 +40,7 @@ data:
                 }
               ]
             }
-          }
+          },
           "A2": {
             "class": "Application",
             "template": "https",
