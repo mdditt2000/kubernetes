@@ -14,7 +14,7 @@ spec:
       serviceAccountName: k8s-bigip-ctlr
       containers:
         - name: k8s-bigip-ctlr
-          image: "ssurenr/k8s-bigip-ctlr:as3-m1"
+          image: "somanchit/k8s-bigip-ctrl-as3:init-build"
           imagePullPolicy: IfNotPresent
           env:
             - name: BIGIP_USERNAME
@@ -35,5 +35,6 @@ spec:
             "--bigip-partition=AS3",
             "--namespace=default",
             "--pool-member-type=cluster",
-            "--flannel-name=fl-vxlan"
+            "--flannel-name=fl-vxlan",
+            "--log-level=DEBUG"
           ]

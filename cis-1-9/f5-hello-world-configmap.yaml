@@ -9,15 +9,13 @@ metadata:
 data:
   template: |
     {
-      "class": "AS3",
-      "action": "deploy",
-      "persist": true,
       "declaration": {
-        "class": "ADC",
-        "schemaVersion": "3.10.0",
-        "label": "Sample 1",
-        "remark": "Simple HTTP application with RR pool",
-        "AS3": {
+      "class": "ADC",
+      "schemaVersion": "3.10.0",
+      "id": "urn:uuid:33045210-3ab8-4636-9b2a-c98d22ab915d",
+      "label": "Sample 1",
+      "remark": "Simple HTTP application with RR pool",
+      "AS3": {
           "class": "Tenant",
           "A1": {
             "class": "Application",
