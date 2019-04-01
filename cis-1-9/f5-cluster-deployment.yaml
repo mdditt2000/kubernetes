@@ -14,7 +14,7 @@ spec:
       serviceAccountName: k8s-bigip-ctlr
       containers:
         - name: k8s-bigip-ctlr
-          image: "ssurenr/k8s-bigip-ctlr:as3-vxlan-arp"
+          image: "ssurenr/k8s-bigip-ctlr:as3-vxlan"
           imagePullPolicy: IfNotPresent
           env:
             - name: BIGIP_USERNAME
