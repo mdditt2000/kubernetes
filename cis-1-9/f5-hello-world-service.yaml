@@ -25,7 +25,7 @@ metadata:
     app: f5-hello-world-https
     ccis.f5.com/as3-tenant: AS3
     cis.f5.com/as3-app: A2
-    cis.f5.com/as3-pool: web_pool
+    cis.f5.com/as3-pool: web_tls_pool
   name: f5-hello-world-https
   namespace: default
 spec:

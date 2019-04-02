@@ -49,10 +49,10 @@ data:
               "virtualAddresses": [
                 "1.1.1.2"
               ],
-              "pool": "web_pool",
+              "pool": "web_tls_pool",
               "serverTLS": "webtls"
             },
-            "web_pool": {
+            "web_tls_pool": {
               "class": "Pool",
               "loadBalancingMode": "predictive-node",
               "monitors": [
