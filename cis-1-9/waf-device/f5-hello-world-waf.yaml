@@ -24,7 +24,7 @@ data:
             "serviceMain": {
               "class": "Service_HTTP",
               "virtualAddresses": [
-                "1.1.1.3"
+                "10.192.75.99"
               ],
               "pool": "web_pool",
               "securityLogProfiles": [
@@ -33,7 +33,7 @@ data:
                 }
               ],
               "policyWAF": {
-                "use": "owaspautotune"
+                "use": "OWASPAutoTune"
               }
             },
             "web_pool": {
@@ -48,7 +48,7 @@ data:
                 }
               ]
             },
-            "owaspautotune": {
+            "OWASPAutoTune": {
               "class": "WAF_Policy",
               "url": "https://raw.githubusercontent.com/mdditt2000/f5-as3-declarations/master/Common_WAF_Policy.xml",
               "ignoreChanges": true
