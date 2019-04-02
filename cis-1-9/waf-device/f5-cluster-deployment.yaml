@@ -7,13 +7,13 @@ spec:
   replicas: 1
   template:
     metadata:
-      name: k8s-bigip-ctlr
+      name: k8s-bigip-ctlr-2
       labels:
-        app: k8s-bigip-ctlr
+        app: k8s-bigip-ctlr-2
     spec:
       serviceAccountName: k8s-bigip-ctlr
       containers:
-        - name: k8s-bigip-ctlr
+        - name: k8s-bigip-ctlr-2
           image: "subbuv26/k8s-bigip-ctlr:pool"
           imagePullPolicy: IfNotPresent
           env:

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Node
 metadata:
-  name: bigip1
+  name: bigip2
   annotations:
     #Replace MAC with your BIGIP Flannel VXLAN Tunnel MAC
     flannel.alpha.coreos.com/backend-data: '{"VtepMAC":"00:50:56:bb:c2:31"}'
