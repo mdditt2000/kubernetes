@@ -21,7 +21,7 @@ spec:
         imagePullPolicy: Always
         name: f5-hello-world
         ports:
-        - containerPort: 8080
+        - containerPort: 80
           protocol: TCP
 ---
 apiVersion: apps/v1
