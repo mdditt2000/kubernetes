@@ -26,7 +26,7 @@ data:
               "virtualAddresses": [
                 "10.192.75.99"
               ],
-              "pool": "web_pool",
+              "pool": "waf_pool",
               "securityLogProfiles": [
                 {
                   "bigip": "/Common/Log all requests"
@@ -36,7 +36,7 @@ data:
                 "use": "OWASPAutoTune"
               }
             },
-            "web_pool": {
+            "waf_pool": {
               "class": "Pool",
               "monitors": [
                 "http"
