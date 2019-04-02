@@ -26,10 +26,10 @@ data:
               "virtualAddresses": [
                 "1.1.1.2"
               ],
-              "pool": "web_pool",
+              "pool": "secure_pool",
               "serverTLS": "webtls"
             },
-            "web_pool": {
+            "secure_pool": {
               "class": "Pool",
               "loadBalancingMode": "predictive-node",
               "monitors": [
