@@ -23,7 +23,7 @@ kind: Service
 metadata:
   labels:
     app: f5-hello-world-https
-    ccis.f5.com/as3-tenant: AS3
+    cis.f5.com/as3-tenant: AS3
     cis.f5.com/as3-app: A2
     cis.f5.com/as3-pool: secure_pool
   name: f5-hello-world-https

@@ -1,20 +1,20 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: k8s-bigip-ctlr-deployment2
+  name: k8s-bigip-ctlr-deployment
   namespace: kube-system
 spec:
   replicas: 1
   template:
     metadata:
-      name: k8s-bigip-ctlr-2
+      name: k8s-bigip-ctlr
       labels:
-        app: k8s-bigip-ctlr-2
+        app: k8s-bigip-ctlr
     spec:
       serviceAccountName: k8s-bigip-ctlr
       containers:
-        - name: k8s-bigip-ctlr-2
-          image: "subbuv26/k8s-bigip-ctlr:pool"
+        - name: k8s-bigip-ctlr
+          image: "abhishekf5/k8s-bigip-ctlr:as3schema"
           imagePullPolicy: IfNotPresent
           env:
             - name: BIGIP_USERNAME
