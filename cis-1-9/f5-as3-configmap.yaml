@@ -40,6 +40,42 @@ data:
                 }
               ]
             }
+          },
+          "A3": {
+            "class": "Application",
+            "template": "http",
+            "serviceMain": {
+              "class": "Service_HTTP",
+              "virtualAddresses": [
+                "10.192.75.103"
+              ],
+              "pool": "waf_pool",
+              "securityLogProfiles": [
+                {
+                  "bigip": "/Common/Log all requests"
+                }
+              ],
+              "policyWAF": {
+                "use": "OWASPAutoTune"
+              }
+            },
+            "waf_pool": {
+              "class": "Pool",
+              "monitors": [
+                "http"
+              ],
+              "members": [
+                {
+                  "servicePort": 80,
+                  "serverAddresses": []
+                }
+              ]
+            },
+            "OWASPAutoTune": {
+              "class": "WAF_Policy",
+              "url": "https://raw.githubusercontent.com/mdditt2000/f5-as3-declarations/master/Common_WAF_Policy.xml",
+              "ignoreChanges": true
+            }
           }
         }
       }
