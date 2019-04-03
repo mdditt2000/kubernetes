@@ -41,6 +41,48 @@ data:
               ]
             }
           },
+          "A2": {
+            "class": "Application",
+            "template": "https",
+            "serviceMain": {
+              "class": "Service_HTTPS",
+              "virtualAddresses": [
+                "1.1.1.2"
+              ],
+              "pool": "secure_pool",
+              "serverTLS": "webtls"
+            },
+            "secure_pool": {
+              "class": "Pool",
+              "loadBalancingMode": "predictive-node",
+              "monitors": [
+                "http"
+              ],
+              "members": [
+                {
+                  "servicePort": 80,
+                  "serverAddresses": []
+                }
+              ]
+            },
+            "webtls": {
+              "class": "TLS_Server",
+              "certificates": [
+                {
+                  "certificate": "webcert"
+                }
+              ]
+            },
+            "webcert": {
+              "class": "Certificate",
+              "certificate": {
+                "bigip": "/Common/default.crt"
+              },
+              "privateKey": {
+                "bigip": "/Common/default.key"
+              }
+            }
+          },
           "A3": {
             "class": "Application",
             "template": "http",
