@@ -82,7 +82,7 @@ data:
                 "protected": "eyJhbGciOiJkaXIiLCJlbmMiOiJub25lIn0"
               }
             }
-          }
+          },
           "A3": {
             "class": "Application",
             "template": "http",
