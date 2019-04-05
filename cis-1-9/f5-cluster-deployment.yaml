@@ -14,7 +14,7 @@ spec:
       serviceAccountName: k8s-bigip-ctlr
       containers:
         - name: k8s-bigip-ctlr
-          image: "abhishekf5/k8s-bigip-ctlr:as3schema-310-pools"
+          image: "ssurenr/k8s-bigip-ctlr:1.9.0-cf"
           imagePullPolicy: IfNotPresent
           env:
             - name: BIGIP_USERNAME
