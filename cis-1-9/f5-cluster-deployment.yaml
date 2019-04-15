@@ -14,7 +14,7 @@ spec:
       serviceAccountName: k8s-bigip-ctlr
       containers:
         - name: k8s-bigip-ctlr
-          image: "ssurenr/k8s-bigip-ctlr:1.9.0-cf"
+          image: "f5networks/k8s-bigip-ctlr:1.9.0"
           imagePullPolicy: IfNotPresent
           env:
             - name: BIGIP_USERNAME
