@@ -6,7 +6,6 @@ metadata:
   labels:
     f5type: virtual-server
     as3: "true"
-    insecure: "true"
 data:
   template: |
     {
