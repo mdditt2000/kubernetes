@@ -21,12 +21,13 @@ data:
                 "class": "Tenant",
                 "A4": {
                     "class": "Application",
-                    "template": "http",
+                    "template": "tcp",
                     "serviceMain": {
-                        "class": "Service_HTTP",
+                        "class": "Service_TCP",
                         "virtualAddresses": [
                             "10.192.75.104"
                         ],
+                        "virtualPort": 443,
                         "pool": "https_pool"
                     },
                     "https_pool": {
