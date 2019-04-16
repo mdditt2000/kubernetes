@@ -17,7 +17,7 @@ data:
         "schemaVersion": "3.10.0",
         "id": "1847a369-5a25-4d1b-8cad-5740988d4423",
         "label": "Sample AS3 Template",
-        "remark": "HTTP application",
+        "remark": "HTTPs application",
         "stark": {
           "class": "Tenant",
           "blog": {
@@ -26,19 +26,19 @@ data:
             "serviceMain": {
               "class": "Service_HTTP",
               "virtualAddresses": [
-                "10.0.6.100"
+                "10.192.75.104"
               ],
-              "virtualPort": 80,
-              "pool": "web_pool"
+              "virtualPort": 443,
+              "pool": "https_pool"
             },
-            "web_pool": {
+            "https_pool": {
               "class": "Pool",
               "monitors": [
-                "http"
+                "https"
               ],
               "members": [
                 {
-                  "servicePort": 8080,
+                  "servicePort": 443,
                   "serverAddresses": []
                 }
               ]

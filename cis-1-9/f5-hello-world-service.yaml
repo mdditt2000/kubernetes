@@ -57,3 +57,23 @@ spec:
   type: NodePort
   selector:
     app: f5-hello-world-waf
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: test-https
+    cis.f5.com/as3-tenant: AS3
+    cis.f5.com/as3-app: A4
+    cis.f5.com/as3-pool: https_pool
+  name: test-https
+  namespace: default
+spec:
+  ports:
+  - name: test-https
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  type: NodePort
+  selector:
+    app: test-https
