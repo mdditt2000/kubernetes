@@ -18,15 +18,14 @@ data:
         "remark": "Simple HTTP application with RR pool",
         "AS3": {
           "class": "Tenant",
-          "blog": {
+          "A4": {
             "class": "Application",
-            "template": "http",
+            "template": "https",
             "serviceMain": {
-              "class": "Service_HTTP",
+              "class": "Service_HTTPS",
               "virtualAddresses": [
                 "10.192.75.104"
               ],
-              "virtualPort": 443,
               "pool": "https_pool"
             },
             "https_pool": {
