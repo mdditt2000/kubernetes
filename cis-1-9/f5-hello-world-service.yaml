@@ -62,18 +62,18 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: test-https
+    app: f5-hello-world-end-to-end-ssl
     cis.f5.com/as3-tenant: AS3
     cis.f5.com/as3-app: A4
     cis.f5.com/as3-pool: https_pool
-  name: test-https
+  name: f5-hello-world-end-to-end-ssl
   namespace: default
 spec:
   ports:
-  - name: test-https
-    port: 80
+  - name: f5-hello-world-end-to-end-ssl
+    port: 443
     protocol: TCP
-    targetPort: 80
+    targetPort: 443
   type: NodePort
   selector:
-    app: test-https
+    app: f5-hello-world-end-to-end-ssl
