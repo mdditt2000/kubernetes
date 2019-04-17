@@ -35,7 +35,7 @@ spec:
             "--bigip-partition=K8s",
             "--namespace=default",
             "--pool-member-type=cluster",
-            "--flannel-name=fl-vxlan"
+            "--flannel-name=fl-vxlan",
             "--log-level=DEBUG",
             "--insecure=true"
           ]
