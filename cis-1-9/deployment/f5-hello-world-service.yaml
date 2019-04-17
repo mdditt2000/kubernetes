@@ -11,9 +11,9 @@ metadata:
 spec:
   ports:
   - name: f5-hello-world
-    port: 80
+    port: 8080
     protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   type: NodePort
   selector:
     app: f5-hello-world
@@ -31,9 +31,9 @@ metadata:
 spec:
   ports:
   - name: f5-hello-world-https
-    port: 80
+    port: 8080
     protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   type: NodePort
   selector:
     app: f5-hello-world-https
@@ -51,9 +51,9 @@ metadata:
 spec:
   ports:
   - name: f5-hello-world-waf
-    port: 80
+    port: 8080
     protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   type: NodePort
   selector:
     app: f5-hello-world-waf

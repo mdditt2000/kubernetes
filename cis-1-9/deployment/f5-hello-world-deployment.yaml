@@ -4,7 +4,7 @@ metadata:
   name: f5-hello-world
   namespace: default
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: f5-hello-world
@@ -17,11 +17,11 @@ spec:
       - env:
         - name: service_name
           value: f5-hello-world
-        image: f5networksdevel/test-nginx:latest
+        image: f5devcentral/f5-hello-world:latest
         imagePullPolicy: Always
         name: f5-hello-world
         ports:
-        - containerPort: 80
+        - containerPort: 8080
           protocol: TCP
 ---
 apiVersion: apps/v1
@@ -30,7 +30,7 @@ metadata:
   name: f5-hello-world-https
   namespace: default
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: f5-hello-world-https
@@ -43,11 +43,11 @@ spec:
       - env:
         - name: service_name
           value: f5-hello-world-https
-        image: f5networksdevel/test-nginx:latest
+        image: f5devcentral/f5-hello-world:latest
         imagePullPolicy: Always
         name: f5-hello-world-https
         ports:
-        - containerPort: 80
+        - containerPort: 8080
           protocol: TCP
 ---
 apiVersion: apps/v1
@@ -56,7 +56,7 @@ metadata:
   name: f5-hello-world-waf
   namespace: default
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: f5-hello-world-waf
@@ -69,9 +69,9 @@ spec:
       - env:
         - name: service_name
           value: f5-hello-world-waf
-        image: f5networksdevel/test-nginx:latest
+        image: f5devcentral/f5-hello-world:latest
         imagePullPolicy: Always
         name: f5-hello-world-waf
         ports:
-        - containerPort: 80
+        - containerPort: 8080
           protocol: TCP
