@@ -37,5 +37,5 @@ spec:
             "--pool-member-type=cluster",
             "--flannel-name=fl-vxlan",
             "--log-level=DEBUG",
-            "--insecure=true",
+            "--insecure=true"
           ]
