@@ -95,7 +95,7 @@ spec:
       - env:
         - name: service_name
           value: f5-hello-world-end-to-end-ssl
-        image: f5devcentral/f5-hello-world:latest
+        image:  f5devcentral/f5-demo-httpd
         imagePullPolicy: Always
         name: f5-hello-world-end-to-end-ssl
         ports:
