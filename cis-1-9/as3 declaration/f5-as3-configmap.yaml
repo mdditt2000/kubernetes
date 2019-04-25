@@ -27,6 +27,14 @@ data:
                             "10.192.75.105"
                         ],
                         "pool": "secure_ssl_waf_pool",
+                        "securityLogProfiles": [
+                            {
+                                "bigip": "/Common/Log all requests"
+                            }
+                        ],
+                        "policyWAF": {
+                            "use": "OWASPAutoTune"
+                        },
                         "serverTLS": "frontside",
                         "clientTLS": "backside"
                     },
@@ -41,6 +49,11 @@ data:
                                 "serverAddresses": []
                             }
                         ]
+                    },
+                    "OWASPAutoTune": {
+                        "class": "WAF_Policy",
+                        "url": "https://raw.githubusercontent.com/mdditt2000/f5-as3-declarations/master/Common_WAF_Policy.xml",
+                        "ignoreChanges": true
                     },
                     "frontside": {
                         "class": "TLS_Server",
