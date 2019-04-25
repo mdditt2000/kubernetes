@@ -4,29 +4,21 @@
         "class": "ADC",
         "schemaVersion": "3.9.0",
         "id": "urn:uuid:33045210-3ab8-4636-9b2a-c98d22ab915d",
-        "label": "Sample 3",
-        "remark": "Simple HTTP application with waf",
+        "label": "Sample 1",
+        "remark": "Simple HTTP application with RR pool",
         "AS3": {
             "class": "Tenant",
-            "A3": {
+            "A1": {
                 "class": "Application",
                 "template": "http",
                 "serviceMain": {
                     "class": "Service_HTTP",
                     "virtualAddresses": [
-                        "10.192.75.103"
+                        "10.192.75.101"
                     ],
-                    "pool": "waf_pool",
-                    "securityLogProfiles": [
-                        {
-                            "bigip": "/Common/Log all requests"
-                        }
-                    ],
-                    "policyWAF": {
-                        "use": "OWASPAutoTune"
-                    }
+                    "pool": "web_pool"
                 },
-                "waf_pool": {
+                "web_pool": {
                     "class": "Pool",
                     "monitors": [
                         "http"
@@ -37,11 +29,6 @@
                             "serverAddresses": []
                         }
                     ]
-                },
-                "OWASPAutoTune": {
-                    "class": "WAF_Policy",
-                    "url": "https://raw.githubusercontent.com/mdditt2000/f5-as3-declarations/master/Common_WAF_Policy.xml",
-                    "ignoreChanges": true
                 }
             }
         }
