@@ -169,11 +169,11 @@ data:
                         "virtualAddresses": [
                             "10.192.75.105"
                         ],
-                        "pool": "secure_ssl_waf-pool",
+                        "pool": "secure_ssl_waf_pool",
                         "serverTLS": "frontside",
                         "clientTLS": "backside"
                     },
-                    "secure_ssl_waf-pool": {
+                    "secure_ssl_waf_pool": {
                         "class": "Pool",
                         "monitors": [
                             "https"
