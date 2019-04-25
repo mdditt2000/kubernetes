@@ -77,3 +77,23 @@ spec:
   type: NodePort
   selector:
     app: f5-hello-world-end-to-end-ssl
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: f5-hello-world-end-to-end-ssl
+    cis.f5.com/as3-tenant: AS3
+    cis.f5.com/as3-app: A4
+    cis.f5.com/as3-pool: secure_ssl_waf-pool
+  name: f5-hello-world-end-to-end-ssl
+  namespace: default
+spec:
+  ports:
+  - name: f5-hello-world-end-to-end-ssl
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  type: NodePort
+  selector:
+    app: f5-hello-world-end-to-end-ssl
