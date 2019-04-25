@@ -85,7 +85,7 @@ metadata:
     app: f5-hello-world-end-to-end-ssl
     cis.f5.com/as3-tenant: AS3
     cis.f5.com/as3-app: A5
-    cis.f5.com/as3-pool: secure_ssl_waf-pool
+    cis.f5.com/as3-pool: secure_ssl_waf_pool
   name: f5-hello-world-end-to-end-ssl
   namespace: default
 spec:
