@@ -101,3 +101,29 @@ spec:
         ports:
         - containerPort: 443
           protocol: TCP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: f5-hello-world-end-to-end-ssl-waf
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: f5-hello-world-end-to-end-ssl-waf
+  template:
+    metadata:
+      labels:
+        app: f5-hello-world-end-to-end-ssl-waf
+    spec:
+      containers:
+      - env:
+        - name: service_name
+          value: f5-hello-world-end-to-end-ssl-waf
+        image:  f5devcentral/f5-demo-httpd
+        imagePullPolicy: Always
+        name: f5-hello-world-end-to-end-ssl-waf
+        ports:
+        - containerPort: 443
+          protocol: TCP
