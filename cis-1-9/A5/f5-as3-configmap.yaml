@@ -139,7 +139,7 @@ data:
                         "members": [
                             {
                                 "servicePort": 443,
-                                "serverAddresses": []
+                                "serverAddresses": [],
                                 "shareNodes": true
                             }
                         ]
@@ -190,7 +190,7 @@ data:
                         "members": [
                             {
                                 "servicePort": 443,
-                                "serverAddresses": []
+                                "serverAddresses": [],
                                 "shareNodes": true
                             }
                         ]
