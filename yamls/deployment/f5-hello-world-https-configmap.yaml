@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: f5-hello-world.vs.https
+  labels:
+    f5type: virtual-server
+data:
+  schema: "f5schemadb://bigip-virtual-server_v0.1.7.json"
+  data: |
+    {
+      "virtualServer": {
+          "frontend": {
+          "virtualAddress": {
+            "port": 443,
+            "bindAddr": "10.192.75.95"
+          },
+          "partition": "K8s",
+          "balance": "round-robin",
+          "mode": "http",
+          "sslProfile": {
+          "f5ProfileName": "Common/clientssl"
+          }
+        },
+        "backend": {
+          "servicePort": 8080,
+          "serviceName": "f5-hello-world",
+          "healthMonitors": [{
+          "interval": 5,
+          "protocol": "http",
+          "send": "HEAD / HTTP/1.0\r\n\r\n",
+          "timeout": 16
+        }]
+        }
+      }
+    }
+

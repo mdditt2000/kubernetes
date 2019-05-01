@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: k8s-bigip-ctlr-deployment
+  name: k8s-bigip-ctlr-deployment-node02
   namespace: kube-system
 spec:
   replicas: 1
@@ -31,7 +31,7 @@ spec:
           args: [
             "--bigip-username=$(BIGIP_USERNAME)",
             "--bigip-password=$(BIGIP_PASSWORD)",
-            "--bigip-url=192.168.200.91",
+            "--bigip-url=192.168.200.92",
             "--bigip-partition=K8s",
             "--namespace=default",
             "--pool-member-type=cluster",

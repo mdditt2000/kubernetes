@@ -19,6 +19,36 @@ tmsh create net tunnels tunnel fl-vxlan key 1 profile fl-vxlan local-address 192
 tmsh create net self 10.244.20.91 address 10.244.20.91/255.255.0.0 allow-service none vlan fl-vxlan
 ```
 
+##### Create cluster deplpoyment.
+
+There is deployment mode options, Nodeport or Cluster.
+
+###### Nodeport mode
+```
+kubectl create -f f5-nodeport-deployment.yaml
+```
+
+###### Cluster mode
+```
+kubectl create -f f5-cluster-deployment.yaml
+```
+##### Add the BIG-IP device to the flannel overlay network.
+##### Find the VTEP MAC address
+```
+tmsh
+show /net tunnels tunnel fl-vxlan all-properties
+
+-------------------------------------------------
+Net::Tunnel: fl-vxlan
+-------------------------------------------------
+MAC Address                     00:50:56:bb:2a:ac
+Interface Name                           fl-vxlan
+```
+##### Create a Kubernetes Node for the BIG-IP device.
+```
+kubectl create -f f5-bigip-node.yaml
+```
+
 ## Set up RBAC Authentication
 
 ##### Store your BIG-IP login credentials in a Secret

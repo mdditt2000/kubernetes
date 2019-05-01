@@ -1,0 +1,42 @@
+{
+    "TEST_Pool_Members": {
+        "class": "Application",
+        "template": "generic",
+        "pEnable": {
+            "class": "Pool",
+            "label": "Enable/disable individual members",
+            "loadBalancingMode": "round-robin",
+            "members": [
+                {
+                    "connectionLimit": 21448347,
+                    "enable": true,
+                    "servicePort": 443,
+                    "serverAddresses": [
+                        "198.19.192.60",
+                        "198.19.192.62"
+                    ],
+                    "shareNodes": true
+                },
+                {
+                    "connectionLimit": 214483647,
+                    "enable": true,
+                    "servicePort": 444,
+                    "serverAddresses": [
+                        "198.19.192.61",
+                        "198.19.192.60"
+                    ],
+                    "shareNodes": true
+                },
+                {
+                    "connectionLimit": 21448347,
+                    "enable": true,
+                    "servicePort": 443,
+                    "serverAddresses": [
+                        "198.19.192.72",
+                        "198.19.192.73"
+                    ]
+                }
+            ]
+        }
+    }
+}
