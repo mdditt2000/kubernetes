@@ -37,6 +37,7 @@ spec:
             "--pool-member-type=cluster",
             "--flannel-name=fl-vxlan",
             "--node-poll-interval=300",
+            "--verify-interval=300",
             "--log-level=DEBUG",
             "--insecure=true"
           ]
