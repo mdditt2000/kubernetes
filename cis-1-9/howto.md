@@ -1,4 +1,4 @@
-# Container Ingress Services uisng an Declarative API
+# Container Ingress Services using AS3 Declarative API
 This how to document demenstrates how CIS take advantage of an declarative API to configure and update a BIG-IP from a kuberenetes cluster. This configuration take advantage of cluster mode. In a cluster mode BIG-IP can reach the containers directly. 
 
 ## Use Case
@@ -16,7 +16,7 @@ The Application Services 3 Extension uses a declarative model, meaning CIS sends
 # Prerequisites for using AS3
 
 * Install the AS3 RPM on the F5 BIG-IP. Following the link https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/installation.html
-* If the F5 BIG-IP is using un-signed default ssl certificates add insecure=true as shown below to the controller deployment yaml file. Example https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/big-ip-98/f5-cluster-deployment.yaml
+* If the F5 BIG-IP is using un-signed default ssl certificates add **insecure=true** as shown below to the controller deployment yaml file. Example https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/big-ip-98/f5-cluster-deployment.yaml
     ```
     args: [
         "--bigip-username=$(BIGIP_USERNAME)",
@@ -47,8 +47,6 @@ The Application Services 3 Extension uses a declarative model, meaning CIS sends
         cis.f5.com/as3-pool: secure_ssl_waf_pool
     name: f5-hello-world-end-to-end-ssl-waf
     ```
-
-
 ## Using a configmap with AS3
 
 
