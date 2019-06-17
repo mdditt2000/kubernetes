@@ -12,7 +12,7 @@ The Application Services 3 Extension uses a declarative model, meaning CIS sends
 
 **Note:** CIS uses the partition defined in the controller configuration by default to commincate with the F5 BIG-IP when adding static mac address and forwarding enteries for VXLAN
 
-## Prerequisites for using AS3
+## Prerequisites for using AS3
 
 * Install the AS3 RPM on the F5 BIG-IP. Following the link https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/installation.html
 * If the F5 BIG-IP is using un-signed default ssl certificates add **insecure=true** as shown below to the controller deployment yaml file. Example https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/big-ip-98/f5-cluster-deployment.yaml
@@ -60,7 +60,6 @@ When using CIS with AS3 the behaviors are different The following needs to apply
 Deploying a application called A1 for http. Example of the declaration https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/A1/f5-as3-configmap.yaml
 
 **Note:** This is the first application to be deployed by kub. This example will deploy a simple http application on BIG-IP
-
     ```
     [kube@k8s-1-13-master A1]$ kubectl create -f f5-as3-configmap.yaml
     configmap/f5-as3-declaration created
