@@ -4,9 +4,8 @@ This how to document demenstrates how CIS take advantage of an declarative API t
 ## Use Case
 Determinstate the following BIG-IP capabilties 
 
-* HTTP, HTTPS End to End SSL plus WAF
+* HTTP, HTTPS End
 * Cookie persistence
-* Application Firewall prevent owasp top 10
 
 ## Declarative API
 The Application Services 3 Extension uses a declarative model, meaning CIS sends a declaration file using a single Rest API call. An AS3 declaration describes the desired configuration of an Application Delivery Controller (ADC) such as F5 BIG-IP in tenant- and application-oriented terms. An AS3 tenant comprises a collection of AS3 applications and related resources responsive to a particular authority (the AS3 tenant becomes a partition on the BIG-IP system). An AS3 application comprises a collection of ADC resources relating to a particular network-based business application or system. AS3 declarations may also include resources shared by Applications in one Tenant or all Tenants as well as auxiliary resources of different kinds.
@@ -65,11 +64,18 @@ Deploying a application called A1 for http. Example of the declaration https://g
     ```
     [kube@k8s-1-13-master A1]$ kubectl create -f f5-as3-configmap.yaml
     configmap/f5-as3-declaration created
+    ```
+Deploy a second appliction called A2 for https. Example of the declaration https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/A2/f5-as3-configmap.yaml
 
     ```
-Deploy a second appliction called A2 for https. Example of the declaration
-
-
-
-# Show all logs from pod nginx written in the last hour
-kubectl logs --since=1h
+    [kube@k8s-1-13-master A2]$ kubectl get cm
+    NAME                 DATA   AGE
+    f5-as3-declaration   1      24m
+    ```
+    Note the declaration is already created. To deploy a new service simple apply declaration A1 + A2. AS3 running on BIP-IP will detect and implment the changes
+   
+    ```
+    [kube@k8s-1-13-master A2]$ kubectl apply -f f5-as3-configmap.yaml
+    Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+    configmap/f5-as3-declaration configured
+    ```
