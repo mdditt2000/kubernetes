@@ -56,7 +56,7 @@ When using CIS with AS3 the behaviors are different The following needs to apply
 * Once the declaration is blank the AS3 partition will be removed and you can now delete the configmap
 * When adding new services use the kubectl apply command
 
-# AS3 with a single application
+### AS3 with first application
 Deploying a application called A1 for http. Example of the declaration https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/A1/f5-as3-configmap.yaml
 
 **Note:** This is the first application to be deployed by kub. This example will deploy a simple http application on BIG-IP
@@ -64,6 +64,7 @@ Deploying a application called A1 for http. Example of the declaration https://g
 [kube@k8s-1-13-master A1]$ kubectl create -f f5-as3-configmap.yaml
 configmap/f5-as3-declaration created
 ```
+### AS3 with second application
 Deploy a second appliction called A2 for https. Example of the declaration https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/A2/f5-as3-configmap.yaml
 ```
 [kube@k8s-1-13-master A2]$ kubectl get cm
