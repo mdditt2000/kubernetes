@@ -16,7 +16,7 @@ The Application Services 3 Extension uses a declarative model, meaning CIS sends
 # Prerequisites for using AS3
 
 * Install the AS3 RPM on the F5 BIG-IP. Following the link https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/installation.html
-* If the F5 BIG-IP is using un-signed default ssl certificates add insecure=true as shown below to the controller deployment yaml file
+* If the F5 BIG-IP is using un-signed default ssl certificates add insecure=true as shown below to the controller deployment yaml file. Example https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/big-ip-98/f5-cluster-deployment.yaml
     ```
     args: [
         "--bigip-username=$(BIGIP_USERNAME)",
@@ -29,8 +29,7 @@ The Application Services 3 Extension uses a declarative model, meaning CIS sends
         "--log-level=INFO",
         "--insecure=true"
     ```
-* Add as3: "true" to any configmap applied so that CIS knows the data fields is AS3 and not legacy container connector input data. Please note that CIS will use         
-  gojsonschema to validate the AS3 data. If the declaration doesnt conform with the schema an error will be logged. 
+* Add as3: "true" to any configmap applied so that CIS knows the data fields is AS3 and not legacy container connector input data. Please note that CIS will use gojsonschema to validate the AS3 data. If the declaration doesnt conform with the schema an error will be logged. Example https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/blank/f5-as3-configmap.yaml
     ```
     metadata:
     name: f5-hello-world-https
@@ -39,8 +38,7 @@ The Application Services 3 Extension uses a declarative model, meaning CIS sends
         f5type: virtual-server
         as3: "true"
     ```
-* Create and deploy the kuberenetes service discovery lables. CIS can dynamically discover and update load balancing pool members using service discovery. CIS maps each 
-  pool definition in the AS3 template to a Kubernetes Service resource using a label. To create this mapping, add the following labels to your Kubernetes Service:
+* Create and deploy the kuberenetes service discovery lables. CIS can dynamically discover and update load balancing pool members using service discovery. CIS maps each pool definition in the AS3 template to a Kubernetes Service resource using a label. To create this mapping, add the following labels to your Kubernetes Service. Example https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/deployment/f5-hello-world-service.yaml
     ```
     labels:
         app: f5-hello-world-end-to-end-ssl
