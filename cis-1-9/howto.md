@@ -46,7 +46,7 @@ The Application Services 3 Extension uses a declarative model, meaning CIS sends
         cis.f5.com/as3-pool: secure_ssl_waf_pool
     name: f5-hello-world-end-to-end-ssl-waf
     ```
-Using a configmap with AS3
+## Using a configmap with AS3
 When using CIS with AS3 the behaviors are different The following needs to apply:
 
 * CIS create one big JSON declaration 
