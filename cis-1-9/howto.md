@@ -48,8 +48,14 @@ The Application Services 3 Extension uses a declarative model, meaning CIS sends
     name: f5-hello-world-end-to-end-ssl-waf
     ```
 ## Using a configmap with AS3
+When using CIS with AS3 the declaration changes some of the behaviors. These behaviors are:
 
-
+* CIS create one big JSON declaration 
+* Service doesnt matter on the order inside the declaration 
+* Deleting a configmap doesnt remove the AS3 declaration. You need to remove the AS3 application first. Update the declaration and kube will post the changes
+* To remove the AS3 declaration from BIG-IP usu a blank declaration and displayed in this example: https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/blank/f5-as3-configmap.yaml
+* Once the declaration is blank the AS3 partition will be removed and you can now delete the configmap
+* When adding new services use the kubectl apply command
 
 # Prerequisites for using AS3
 
