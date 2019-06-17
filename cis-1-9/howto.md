@@ -65,14 +65,12 @@ Deploying a application called A1 for http. Example of the declaration https://g
     configmap/f5-as3-declaration created
     ```
 Deploy a second appliction called A2 for https. Example of the declaration https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/A2/f5-as3-configmap.yaml
-
     ```
     [kube@k8s-1-13-master A2]$ kubectl get cm
     NAME                 DATA   AGE
     f5-as3-declaration   1      24m
     ```
     Note the declaration is already created. To deploy a new service simple apply declaration A1 + A2. AS3 running on BIP-IP will detect and implment the changes
-   
     ```
     [kube@k8s-1-13-master A2]$ kubectl apply -f f5-as3-configmap.yaml
     Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
