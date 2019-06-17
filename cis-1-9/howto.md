@@ -4,7 +4,7 @@ This how to document demenstrates how CIS take advantage of an declarative API t
 ## Use Case
 Determinstate the following BIG-IP capabilties 
 
-* End to End SSL
+* HTTP, HTTPS End to End SSL plus WAF
 * Cookie persistence
 * Application Firewall prevent owasp top 10
 
@@ -13,7 +13,7 @@ The Application Services 3 Extension uses a declarative model, meaning CIS sends
 
 **Note:** CIS uses the partition defined in the controller configuration by default to commincate with the F5 BIG-IP when adding static mac address and forwarding enteries for VXLAN
 
-# Prerequisites for using AS3
+## Prerequisites for using AS3
 
 * Install the AS3 RPM on the F5 BIG-IP. Following the link https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/installation.html
 * If the F5 BIG-IP is using un-signed default ssl certificates add **insecure=true** as shown below to the controller deployment yaml file. Example https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/big-ip-98/f5-cluster-deployment.yaml
@@ -48,7 +48,7 @@ The Application Services 3 Extension uses a declarative model, meaning CIS sends
     name: f5-hello-world-end-to-end-ssl-waf
     ```
 ## Using a configmap with AS3
-When using CIS with AS3 the declaration changes some of the behaviors. These behaviors are:
+When using CIS with AS3 the behaviors are different The following needs to apply:
 
 * CIS create one big JSON declaration 
 * Service doesnt matter on the order inside the declaration 
@@ -57,8 +57,17 @@ When using CIS with AS3 the declaration changes some of the behaviors. These beh
 * Once the declaration is blank the AS3 partition will be removed and you can now delete the configmap
 * When adding new services use the kubectl apply command
 
-# Prerequisites for using AS3
+# AS3 with a single application
+Deploying a application called A1 for http. Example of the declaration https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/A1/f5-as3-configmap.yaml
 
+**Note:** This is the first application to be deployed by kub. This example will deploy a simple http application on BIG-IP
+
+    ```
+    [kube@k8s-1-13-master A1]$ kubectl create -f f5-as3-configmap.yaml
+    configmap/f5-as3-declaration created
+
+    ```
+Deploy a second appliction called A2 for https. Example of the declaration
 
 
 
