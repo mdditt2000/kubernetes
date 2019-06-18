@@ -49,7 +49,7 @@ The Application Services 3 Extension uses a declarative model, meaning CIS sends
 ## Using a configmap with AS3
 When using CIS with AS3 the behaviors are different The following needs to apply:
 
-* CIS create one big JSON declaration 
+* CIS create one JSON declaration 
 * Service doesnt matter on the order inside the declaration 
 * Deleting a configmap doesnt remove the AS3 declaration. You need to remove the AS3 application first. Update the declaration and kube will post the changes
 * To remove the AS3 declaration from BIG-IP usu a blank declaration and displayed in this example: https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/blank/f5-as3-configmap.yaml
