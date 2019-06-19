@@ -20,12 +20,14 @@ data:
                 "class": "Tenant",
                 "A1": {
                     "class": "Application",
-                    "template": "http",
-                    "serviceMain": {
+                    "template": "generic",
+                    "iningress": {
                         "class": "Service_HTTP",
                         "virtualAddresses": [
                             "10.192.75.101"
                         ],
+                        "remark":"ingress: f5demo",
+                        "virtualPort": 80,
                         "pool": "web_pool"
                     },
                     "web_pool": {
