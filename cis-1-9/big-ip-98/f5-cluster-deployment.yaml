@@ -14,7 +14,7 @@ spec:
       serviceAccountName: k8s-bigip-ctlr
       containers:
         - name: k8s-bigip-ctlr
-          image: "f5networks/k8s-bigip-ctlr:1.9.1"
+          image: "f5networks/k8s-bigip-ctlr:1.10.0"
           imagePullPolicy: IfNotPresent
           env:
             - name: BIGIP_USERNAME
@@ -37,5 +37,6 @@ spec:
             "--pool-member-type=cluster",
             "--flannel-name=fl-vxlan",
             "--log-level=INFO",
-            "--insecure=true"
+            "--insecure=true",
+            "--agent=as3"
           ]
