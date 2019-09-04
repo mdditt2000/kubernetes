@@ -37,6 +37,5 @@ spec:
             "--pool-member-type=cluster",
             "--flannel-name=fl-vxlan",
             "--log-level=INFO",
-            "--insecure=true",
-            "--agent=as3"
+            "--insecure=true"
           ]
