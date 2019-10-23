@@ -1,3 +1,5 @@
+Currently flannel is not a option for k8s deployment and CIS. Use Calico
+
 ##### Initial Setup for HA environment
 
 ## node01 create the VXLAN tunnel
