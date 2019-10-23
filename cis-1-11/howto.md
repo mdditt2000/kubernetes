@@ -16,7 +16,7 @@ The Application Services 3 Extension uses a declarative model, meaning CIS sends
 
 ## Prerequisites for using AS3
 
-**Note:** CIS uses the partition defined in the controller configuration by default to commincate with the F5 BIG-IP when adding static mac address and forwarding enteries for VXLAN. CIS managed partitions **<partition_AS3>** and **<partition>** should not be used in ConfigMap as Tenants. If CIS is deployed with **bigip-partition=k8s**, then **<k8s_AS3>** and **<k8s>** are not supposed to be used as a tenant in AS3 declaration. Below is a proper declartion which would be correctly processed by CIS. Using **<k8s>** for the AS3 tenant in AS3.
+**Note:** CIS uses the partition defined in the controller configuration by default to commincate with the F5 BIG-IP when adding static mac address and forwarding enteries for VXLAN. CIS managed partitions **<partition_AS3>** and **<partition>** should not be used in ConfigMap as Tenants. If CIS is deployed with **bigip-partition=cis**, then **<cis_AS3>** and **<cis>** are not supposed to be used as a tenant in AS3 declaration. Below is a proper declartion which would be correctly processed by CIS. Using **<k8s>** for the AS3 tenant in AS3.
 
 ```
 kind: ConfigMap
