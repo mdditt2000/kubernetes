@@ -1,7 +1,7 @@
 CIS managed partitions <partition_AS3> and <partition> should not be used in ConfigMap as Tenants
 Eg:
-If CIS is deployed with "--bigip-partition=test", then <test_AS3> and <test> are not supposed to be used as a Tenant in AS3 declaration.
-Below is an improper declartion which would not be processed processed by CIS.
+If CIS is deployed with "--bigip-partition=cis", then <cis_AS3> and <cis> are not supposed to be used as a Tenant in AS3 declaration.
+Below is an improper declartion which would not be processed processed by CIS. In my example im using Tenant k8s in AS3 declaration ad shown the example below.
 ```
 apiVersion: v1
 data:

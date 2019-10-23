@@ -1,18 +1,75 @@
 # Container Ingress Services using AS3 Declarative API
-This how to document demenstrates how CIS take advantage of an declarative API to configure and update a BIG-IP from a kuberenetes cluster. This configuration take advantage of cluster mode. In a cluster mode BIG-IP can reach the containers directly. 
+This how-to document demenstrates how CIS take advantage of an declarative API to configure and update a BIG-IP from a kuberenetes cluster. This configuration take advantage of cluster mode. In a cluster mode BIG-IP can reach the containers directly. 
 
 ## Use Case
 Determinstate the following BIG-IP capabilties 
 
-* HTTP, HTTPS
+* HTTP, HTTPS 
 * Cookie persistence
+* TLS termination
+* End to end TLS termination
+* Web Application firewall
+* Tenant filtering
 
 ## Declarative API
 The Application Services 3 Extension uses a declarative model, meaning CIS sends a declaration file using a single Rest API call. An AS3 declaration describes the desired configuration of an Application Delivery Controller (ADC) such as F5 BIG-IP in tenant- and application-oriented terms. An AS3 tenant comprises a collection of AS3 applications and related resources responsive to a particular authority (the AS3 tenant becomes a partition on the BIG-IP system). An AS3 application comprises a collection of ADC resources relating to a particular network-based business application or system. AS3 declarations may also include resources shared by Applications in one Tenant or all Tenants as well as auxiliary resources of different kinds.
 
-**Note:** CIS uses the partition defined in the controller configuration by default to commincate with the F5 BIG-IP when adding static mac address and forwarding enteries for VXLAN
-
 ## Prerequisites for using AS3
+
+**Note:** CIS uses the partition defined in the controller configuration by default to commincate with the F5 BIG-IP when adding static mac address and forwarding enteries for VXLAN. CIS managed partitions <partition_AS3> and <partition> should not be used in ConfigMap as Tenants. If CIS is deployed with "--bigip-partition=cis", then <cis_AS3> and <cis> are not supposed to be used as a tenant in AS3 declaration. Below is a proper declartion which would be correctly processed by CIS. Using <k8s> for the AS3 tenant in AS3.
+
+```
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: f5-as3-declaration
+  namespace: default
+  labels:
+    f5type: virtual-server
+    as3: "true"
+data:
+  template: |
+    {
+        "class": "AS3",
+        "declaration": {
+            "class": "ADC",
+            "schemaVersion": "3.13.0",
+            "id": "urn:uuid:33045210-3ab8-4636-9b2a-c98d22ab915d",
+            "label": "http",
+            "remark": "A1 Template",
+            "k8s": {
+                "class": "Tenant",
+                "A1": {
+                    "class": "Application",
+                    "template": "generic",
+                    "a1_80_vs": {
+                        "class": "Service_HTTP",
+                        "remark": "a1",
+                        "virtualAddresses": [
+                            "10.192.75.101"
+                        ],
+                        "pool": "web_pool"
+                    },
+                    "web_pool": {
+                        "class": "Pool",
+                        "monitors": [
+                            "http"
+                        ],
+                        "members": [
+                            {
+                                "servicePort": 8080,
+                                "serverAddresses": []
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+```
+**Note:** CIS 1.12 provides the option to use tenant filtering. If you add --filter-tenants=true in the CIS deployment configuration, CIS will all the tenent name to the API call. In this case https://10.192.75.98/mgmt/shared/appsvcs/declare/k8s would be the API call.
+
+## Installing AS3 and handling SSL certificate verification 
 
 * Install the AS3 RPM on the F5 BIG-IP. Following the link https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/installation.html
 * If the F5 BIG-IP is using un-signed default ssl certificates add **insecure=true** as shown below to the controller deployment yaml file. Example https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/big-ip-98/f5-cluster-deployment.yaml
@@ -26,7 +83,8 @@ The Application Services 3 Extension uses a declarative model, meaning CIS sends
         "--pool-member-type=cluster",
         "--flannel-name=fl-vxlan",
         "--log-level=INFO",
-        "--insecure=true"
+        "--insecure=true",
+        "--filter-tenants=true"
     ```
 * Add as3: "true" to any configmap applied so that CIS knows the data fields is AS3 and not legacy container connector input data. Please note that CIS will use gojsonschema to validate the AS3 data. If the declaration doesnt conform with the schema an error will be logged. Example https://github.com/mdditt2000/kubernetes/blob/dev/cis-1-9/blank/f5-as3-configmap.yaml
     ```
