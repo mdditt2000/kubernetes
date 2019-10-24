@@ -1,8 +1,8 @@
 # Container Ingress Services using AS3 Declarative API
-This how-to document demenstrates how CIS take advantage of an declarative API to configure and update a BIG-IP from a kuberenetes cluster. This configuration take advantage of cluster mode. In a cluster mode BIG-IP can reach the containers directly. 
+This how-to document demonstrates how CIS take advantage of an declarative API to configure and update a BIG-IP from a kubernetes cluster. This configuration take advantage of cluster mode. In a cluster mode BIG-IP can reach the containers directly. 
 
 ## Use Case
-Determinstate the following BIG-IP capabilties 
+Demonstrates the following BIG-IP capabilities 
 
 * HTTP, HTTPS 
 * Cookie persistence
@@ -16,7 +16,7 @@ The Application Services 3 Extension uses a declarative model, meaning CIS sends
 
 ## Prerequisites for using AS3
 
-**Note:** CIS uses the partition defined in the controller configuration by default to commincate with the F5 BIG-IP when adding static mac address and forwarding enteries for VXLAN. CIS managed partitions **<partition_AS3>** and **<partition>** should not be used in ConfigMap as Tenants. If CIS is deployed with **bigip-partition=cis**, then **<cis_AS3>** and **<cis>** are not supposed to be used as a tenant in AS3 declaration. Below is a proper declartion which would be correctly processed by CIS. Using **<k8s>** for the AS3 tenant in AS3.
+**Note:** CIS uses the partition defined in the controller configuration by default to communicate with the F5 BIG-IP when adding static ARPs and forwarding entries for VXLAN. CIS managed partitions **<partition_AS3>** and **<partition>** should not be used in ConfigMap as Tenants. If CIS is deployed with **bigip-partition=cis**, then **<cis_AS3>** and **<cis>** are not supposed to be used as a tenant in AS3 declaration. Below is a proper declaration which would be correctly processed by CIS. Using **<k8s>** for the AS3 tenant in AS3. 
 
 ```
 kind: ConfigMap
