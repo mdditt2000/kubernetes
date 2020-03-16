@@ -97,3 +97,23 @@ spec:
   type: NodePort
   selector:
     app: f5-hello-world-end-to-end-ssl
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: f5-hello-world-sctp
+    cis.f5.com/as3-tenant: vzn
+    cis.f5.com/as3-app: CNF_VS_132
+    cis.f5.com/as3-pool: cnf_pool_132
+  name: f5-hello-world-sctp
+  namespace: default
+spec:
+  ports:
+  - name: f5-hello-world-sctp
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  type: NodePort
+  selector:
+    app: f5-hello-world-sctp
