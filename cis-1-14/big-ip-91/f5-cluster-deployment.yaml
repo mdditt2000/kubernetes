@@ -56,7 +56,7 @@ spec:
             "--bigip-password=$(BIGIP_PASSWORD)",
             # Replace with the IP address or hostname of your BIG-IP device
             "--bigip-url=192.168.200.91",
-            "--bigip-partition=vzn",
+            "--bigip-partition=k8s",
             "--namespace=default",
             "--pool-member-type=cluster",
             "--flannel-name=fl-vxlan",
