@@ -63,4 +63,5 @@ spec:
             "--log-level=DEBUG",
             "--log-as3-response=true",
             "--insecure=true",
+            "--agent=AS3",
             ]
