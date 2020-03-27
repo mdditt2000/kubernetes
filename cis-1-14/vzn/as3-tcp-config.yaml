@@ -12,17 +12,17 @@ data:
         "class": "AS3",
         "declaration": {
             "class": "ADC",
-            "schemaVersion": "3.17.0",
+            "schemaVersion": "3.13.0",
             "id": "service-sctp",
             "label": "CNF_TCP",
             "remark": "A1-2 Template",
-            "vzn-sctp": {
+            "vzn": {
                 "class": "Tenant",
                 "f5_hello_world": {
                     "class": "Application",
                     "template": "generic",
                     "CNF_VS_132": {
-                        "class": "Service_SCTP",
+                        "class": "Service_TCP",
                         "remark": "a1",
                         "virtualAddresses": [
                             "10.75.70.5"
